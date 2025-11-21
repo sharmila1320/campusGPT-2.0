@@ -1,0 +1,7 @@
+{
+  "name": "CampusGPT",
+  "description": "An AI-powered institute assistant that learns from community knowledge. Integrates public data via Google Search and internal knowledge via a community-driven database.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
