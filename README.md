@@ -1,216 +1,206 @@
 
- CampusGPT-2.0
-A Role-Based, Self-Learning Campus Intelligence Platform
+---
+
+# CampusGPT-2.0
+
+## Role-Based, Self-Learning Campus Intelligence Platform
+
+A closed-domain AI assistant designed exclusively for campus ecosystems, combining verified institutional knowledge, role-based access control, and continuous learning.
+
+---
 
 Demo 
 https://github.com/sharmila1320/CampusGPT2.0/blob/main/campusGPT_demo_video.mp4
 
-CampusGPT-2.0 is an AI-powered, closed-domain chat system designed exclusively for campus ecosystems.
-It acts as a single source of truth for campus-related information by combining LLM intelligence, role-based access control, and a continuously evolving knowledge base.
+## Table of Contents
 
-Unlike generic chatbots, CampusGPT-2.0 learns from verified institutional responses and improves automatically over time.
+1. Overview
+2. Problem Statement
+3. Solution
+4. Key Features
+5. User Roles & Permissions
+6. System Workflow
+7. Architecture Overview
+8. Tech Stack
+9. Example Use Case
+10. Real-World Impact
+11. Getting Started
+12. Future Enhancements
+13. Demo
+14. Author
 
- Why CampusGPT-2.0?
+---
 
-Campuses suffer from:
+## Overview
 
-Repeated questions
+CampusGPT-2.0 is an AI-powered campus assistant that answers campus-specific queries using a verified and evolving knowledge base.
 
-Scattered information
+Unlike generic chatbots, CampusGPT-2.0:
 
-No verified source of truth
+* Restricts knowledge to campus context
+* Uses institution-verified responses
+* Learns permanently from answered queries
+* Prevents repeated questions and misinformation
 
-Manual helpdesk overload
+---
 
-CampusGPT-2.0 solves this by:
+## Problem Statement
 
-Answering instantly if knowledge exists
+Campuses commonly face:
 
-Raising community tickets if it doesn’t
+* Repetitive student queries
+* Scattered information sources
+* Lack of verified authority responses
+* Manual helpdesk overload
+* No long-term knowledge retention
 
-Allowing only verified institute members to contribute authoritative answers
+---
 
-Storing validated responses permanently for future use
+## Solution
 
- Core Idea
+CampusGPT-2.0 introduces:
 
-Ask once → Verify once → Store forever → Answer instantly next time
+* Role-based answering
+* Automatic ticket creation for unknown queries
+* Verified institutional responses
+* Persistent knowledge storage
+* Faster responses over time
 
-The system evolves into a campus-specific intelligence layer without retraining any AI model.
+Ask once. Verify once. Store forever.
 
- User Roles & Permissions
- Public Users
+---
 
-Any non-institutional email
+## Key Features
 
-Can:
+* Role-based access control
+* Automatic ticket creation for unanswered queries
+* Only institute users can answer and validate responses
+* Public and institute-only visibility control
+* Self-learning knowledge base
+* Instant responses for previously answered questions
 
-Ask campus-related questions
+---
 
-View public answers
+## User Roles & Permissions
 
-Cannot:
+### Public Users
 
-Answer questions
+* Any non-institutional email
+* Can ask questions and view public answers
+* Cannot answer questions or control visibility
 
-Control visibility
+### Institute Users (Verified)
 
-Moderate content
+* Emails ending with official institute domain
+* Can answer raised tickets
+* Can choose answer visibility (public or institute-only)
+* Can validate and enrich the knowledge base
 
- Institute Users (Verified Authority)
+---
 
-Emails ending with official institute domain
+## System Workflow
 
-Can:
+1. User asks a question
+2. System checks the knowledge base
+3. If an answer exists, it is returned instantly
+4. If not, a community ticket is raised
+5. An institute user provides an answer
+6. The verified answer is stored in the database
+7. Future queries are answered automatically
 
-Answer raised questions
+---
 
-Decide visibility:
+## Architecture Overview
 
- Public (visible to all)
-
- Institute-only
-
-Validate and enrich the knowledge base
-
-This ensures accuracy, trust, and controlled information flow.
-
- System Workflow
-
-User asks a question
-
-System checks the database
-
-If answer exists → respond instantly
-
-If answer does not exist
-
-A community ticket is raised
-
-Institute user responds
-
-Chooses visibility (public / institute-only)
-
-Database updates automatically
-
-Future queries are answered directly from verified data
-
-No repeated tickets. No hallucinated answers.
-
- Architecture Overview
+```
 User Query
-   ↓
-Authentication & Role Check
-   ↓
-Knowledge Base Lookup
-   ↓
-Answer Found? ── Yes → Instant Response
-        │
-        No
-        ↓
-Community Ticket Raised
-        ↓
-Institute User Answer
-        ↓
-Verified Answer Stored in DB
-        ↓
-Future Queries Answered Instantly
+   -> Authentication and Role Check
+   -> Knowledge Base Lookup
+   -> Answer Exists?
+        -> Yes: Respond Instantly
+        -> No: Raise Ticket
+              -> Institute User Answers
+              -> Verified Answer Stored
+```
 
- Tech Stack
+---
 
-Frontend: React + TypeScript
+## Tech Stack
 
-AI Engine: Google Gemini API
+* Frontend: React, TypeScript
+* Build Tool: Vite
+* AI Engine: Google Gemini API
+* Authentication: Email domain-based role detection
+* Database: Structured question–answer storage
 
-State Management: React Hooks
+---
 
-Authentication: Email-based role detection
+## Example Use Case
 
-Database: Structured Q&A knowledge base
+Student asks:
+“When is the semester registration deadline?”
 
-Build Tool: Vite
+If the answer is not available, a ticket is raised.
+An institute user answers and marks it as public.
+The response is stored permanently.
 
-Language: TypeScript
+Next time the same question is asked, the system responds instantly without raising a ticket.
 
- Key Features
+---
 
- Role-based access control
+## Real-World Impact
 
- Automatic ticket creation for unanswered queries
+CampusGPT-2.0:
 
- Verified institutional responses
+* Reduces repetitive helpdesk workload
+* Builds a trusted campus knowledge repository
+* Prevents AI hallucinations in closed domains
+* Mirrors enterprise-grade internal AI systems
+* Scales naturally with usage
 
- Public & institute-only visibility control
+---
 
- Self-learning knowledge base
+## Getting Started
 
- Faster responses over time
-
- Demo-backed working prototype
-
- Real-World Applications
-
-Campus helpdesk automation
-
-Student onboarding assistants
-
-Academic & administrative query resolution
-
-Internal institutional knowledge systems
-
-Closed-domain AI assistants
-
- Why This Project Matters 
-
-CampusGPT-2.0 demonstrates:
-
-System design thinking
-
-Role-aware access control
-
-Applied AI without hallucination risk
-
-Knowledge persistence & reuse
-
-Enterprise-style AI deployment patterns
-
-This mirrors how companies deploy internal AI assistants, not consumer chatbots.
-
- Example Use Case
-
-Student: “When is course registration deadline?”
-System:  Not in DB → Ticket raised
-Institute user answers → Stored as verified knowledge
-Next student asks →  Instant AI response
-
- Future Enhancements
-
-Semantic search for similar questions
-
-Admin moderation dashboard
-
-Analytics on query frequency
-
-Multi-campus support
-
-Vector database integration
-
-Notification system for answered tickets
-
- Getting Started
+```bash
 git clone https://github.com/sharmila1320/campusGPT-2.0.git
 cd campusGPT-2.0
 npm install
 npm run dev
+```
 
+Create a `.env` file:
 
- Author
+---
+
+## Future Enhancements
+
+* Semantic search for similar questions
+* Admin moderation dashboard
+* Query analytics and insights
+* Vector database integration
+* Multi-campus support
+* Notification system for ticket updates
+
+---
+
+## Demo
+
+A demo video is included in the repository demonstrating the complete workflow.
+
+---
+
+## Author
 
 Sharmila Rapeti
-B.Tech ECE | Full-Stack + Applied AI
-GitHub: https://github.com/sharmila1320
+B.Tech ECE | Full-Stack and Applied AI
+GitHub: [https://github.com/sharmila1320](https://github.com/sharmila1320)
 
- Final Note
+---
 
-CampusGPT-2.0 is not just an AI chatbot —
-it is a scalable, verified, self-learning campus intelligence system.
+## Final Note
+
+CampusGPT-2.0 is not a generic chatbot.
+It is a verified, role-aware, self-learning campus intelligence system designed for real-world deployment.
+
+---
